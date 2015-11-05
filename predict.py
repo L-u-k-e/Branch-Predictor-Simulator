@@ -84,6 +84,7 @@ def staticPredict(branch_results):
   table = [[None, True] for _ in range(128)]
   
   def mappingFunc(branch):
+    nonlocal table
     prediction = True
     entry = table[branch['slot']]
     if entry[0] == branch['tag']:
@@ -114,6 +115,7 @@ def dynamicPredict(branch_results):
   table = [[None, '0', '0', copy.deepcopy(automata)] for _ in range(128)]
 
   def mappingFunc(branch):
+    nonlocal automata, table
     entry = table[branch['slot']]
     key = entry[1] + entry[2]
     if entry[0] == branch['tag']:
@@ -121,14 +123,14 @@ def dynamicPredict(branch_results):
       entry[2] = '1' if branch['taken'] else '0'
     else:
       table[branch['slot']] = [branch['tag'], '0', '0', copy.deepcopy(automata)]
-      
-    automata = table[branch['slot']][3][key]
-    correct = True if automata[1] == branch['taken'] else False
+    
+    pattern = table[branch['slot']][3][key]
+    correct = True if pattern[1] == branch['taken'] else False
     if not correct:
-      automata[0] += 1
-      if automata[0] == 2:
-        automata[0] = 0
-        automata[1] = not automata[1]
+      pattern[0] += 1
+      if pattern[0] == 2:
+        pattern[0] = 0
+        pattern[1] = not pattern[1]
 
     return correct
       
