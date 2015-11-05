@@ -23,4 +23,4 @@ Where `@` means the branch was taken and `.` means it wasnt. So for example:
     
 Run like:
   
-   python3 input.trace
+    python3 input.trace
