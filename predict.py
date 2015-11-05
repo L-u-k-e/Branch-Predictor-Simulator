@@ -41,9 +41,9 @@ def main():
 #     ...           ]
 #Output:
 #  List of dicts whose entries represent the info I care about. e.g.
-#  [ {'address': '0b111110101100', taken: False, slot: '0101100', tag: '11111'},
-#    {'address': '0b001100011111', taken: True, slot: '0011111', tag: '00110'}   
-#    ...                                                                       ]
+#  [ {'address': 0b111110101100, taken: False, slot: 44, tag: 31},
+#    {'address': 0b001100011111, taken: True, slot: 31, tag: 6}   
+#    ...                                                                ]
 def parseBranchResults(lines):
 
   def mappingFunc(string):
