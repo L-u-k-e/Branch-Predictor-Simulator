@@ -20,3 +20,7 @@ Where `@` means the branch was taken and `.` means it wasnt. So for example:
     0x7fa5af52ccc1	@	0x7fa5af52ccdf
     0x7fa5af52cce3	@	0x7fa5af52ccc8
     0x7fa5af52ccdd	.	0x7fa5af52ccdf
+    
+Run like:
+  
+   python3 input.trace
