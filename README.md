@@ -1,9 +1,6 @@
 # Branch-Predictor-Simulator
 Simulates 3 different types of branch prediction given a set of results to test their accuracy
 
-
-Simulates 3 different types of branch prediction, given an input file of actual branching results.
-
  - Fixed   (always picks true)
  - Static  (first taken)
  - dynamic (two layer adaptive learner)
@@ -23,4 +20,4 @@ Where `@` means the branch was taken and `.` means it wasnt. So for example:
     
 Run like:
   
-    python3 input.trace
+   python3 input.trace
